@@ -21,10 +21,10 @@ public class ResultVO<T> {
         return this;
     }
 
-    public ResultVO<T> FAIL(String msg, T data) {
+    public ResultVO<T> FAIL(String msg) {
         this.code = -1;
         this.message = msg;
-        this.data = data;
+        this.data = null;
 
         return this;
     }
