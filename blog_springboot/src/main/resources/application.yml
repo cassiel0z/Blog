@@ -1,0 +1,49 @@
+spring:
+  # MySQL数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://116.62.70.58:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: toor
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: true
+  # 邮件服务
+  mail:
+    host: smtp.163.com
+    username: workarrangement@163.com
+    # password为邮箱授权码，勿动
+    password: UENZBTVEJKDWYDSW
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+      debug: true
+  # Redis数据库配置
+  redis:
+    host: 116.62.70.58
+    port: 6379
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: -1  # 请求中文件大小不受限
+
+server:
+  # 运行端口
+  port: 8081
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: false
