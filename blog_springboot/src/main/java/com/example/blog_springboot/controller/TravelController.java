@@ -23,4 +23,9 @@ public class TravelController {
         return travelService.getArticle(id);
     }
 
+    @GetMapping("/delete/{id}")
+    public ResultVO<Object> deleteArticle(@PathVariable long id) {
+        return travelService.deleteArticle(id);
+    }
+
 }

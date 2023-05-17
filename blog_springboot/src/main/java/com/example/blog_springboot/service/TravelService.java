@@ -37,4 +37,13 @@ public class TravelService {
         }
     }
 
+    public ResultVO<Object> deleteArticle(long id) {
+        try {
+            travelMapper.deleteById(id);
+            return new ResultVO<>().SUCCESS("删除成功", null);
+        } catch (Exception e) {
+            return new ResultVO<>().FAIL("删除失败");
+        }
+    }
+
 }
