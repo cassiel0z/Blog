@@ -9,7 +9,7 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue({ 
+    vue({
       template: { transformAssetUrls }
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
@@ -37,5 +37,17 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+        target: "http://localhost:8081/api", //跨域地址
+        changeOrigin: true, //支持跨域
+        rewrite: (path) => path.replace(/^\/api/, "")//重写路径,替换/api
+      }
+    }
   },
+
+
+
 })
+
+

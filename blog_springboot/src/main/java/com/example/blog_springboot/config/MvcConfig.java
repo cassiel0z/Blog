@@ -25,9 +25,9 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 登陆拦截器，拦截未登陆（无Token或Token无效）用户
-        registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/api/user/register", "/api/user/login/password");
+//        registry.addInterceptor(new LoginInterceptor())
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/api/user/register", "/api/user/login/password");
 
         WebMvcConfigurer.super.addInterceptors(registry);
     }
