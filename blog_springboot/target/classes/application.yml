@@ -2,9 +2,9 @@ spring:
   # MySQL数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://116.62.70.58:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/Blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
-    password: toor
+    password: 918spyder
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -27,9 +27,8 @@ spring:
       debug: true
   # Redis数据库配置
   redis:
-    host: 116.62.70.58
+    host: localhost
     port: 6379
-    password: Best5developer
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
