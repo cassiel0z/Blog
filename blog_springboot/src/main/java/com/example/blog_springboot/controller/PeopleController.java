@@ -1,8 +1,8 @@
 package com.example.blog_springboot.controller;
 
-import com.example.blog_springboot.mapper.TravelMapper;
-import com.example.blog_springboot.pojo.Travel;
-import com.example.blog_springboot.service.TravelService;
+import com.example.blog_springboot.mapper.PeopleMapper;
+import com.example.blog_springboot.pojo.People;
+import com.example.blog_springboot.service.PeopleService;
 import com.example.blog_springboot.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,39 +15,39 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 @RestController
-@RequestMapping("/api/travel")
-public class TravelController {
+@RequestMapping("/api/people")
+public class PeopleController {
 
     @Autowired
-    private TravelService travelService;
+    private PeopleService peopleService;
 
     @Autowired
-    private TravelMapper travelMapper;
+    private PeopleMapper peopleMapper;
 
     @PostMapping("/add")
     public ResultVO<Object> addArticle(@RequestParam("topic") String topic, @RequestParam("content") String content, @RequestParam("image") MultipartFile image, @RequestParam("userId") long userId) {
-        return travelService.addArticle(topic, content, image, userId);
+        return peopleService.addArticle(topic, content, image, userId);
     }
 
     @GetMapping("/get/{id}")
     public ResultVO<Object> getArticle(@PathVariable long id) {
-        return travelService.getArticle(id);
+        return peopleService.getArticle(id);
     }
 
     @GetMapping("/get/user/{id}")
     public ResultVO<Object> getArticleByUser(@PathVariable long id) {
-        return travelService.getArticleByUser(id);
+        return peopleService.getArticleByUser(id);
     }
 
     @GetMapping("/delete/{id}")
     public ResultVO<Object> deleteArticle(@PathVariable long id) {
-        return travelService.deleteArticle(id);
+        return peopleService.deleteArticle(id);
     }
 
     @GetMapping("/photo/get/{id}")
     public void getUserPhoto(@PathVariable long id, HttpServletResponse response) {
         try {
-            Travel result = travelMapper.selectById(id);
+            People result = peopleMapper.selectById(id);
             InputStream inputStream = new ByteArrayInputStream(result.getImage());
 
             ServletOutputStream outputStream = response.getOutputStream();

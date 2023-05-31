@@ -1,7 +1,7 @@
 package com.example.blog_springboot.service;
 
-import com.example.blog_springboot.mapper.TravelMapper;
-import com.example.blog_springboot.pojo.Travel;
+import com.example.blog_springboot.mapper.FoodMapper;
+import com.example.blog_springboot.pojo.Food;
 import com.example.blog_springboot.utils.ImageUtil;
 import com.example.blog_springboot.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class TravelService {
+public class FoodService {
 
     @Autowired
-    private TravelMapper travelMapper;
+    private FoodMapper foodMapper;
 
     public ResultVO<Object> addArticle(String topic, String content, MultipartFile image, long userId) {
         ResultVO<Object> check = ImageUtil.checkImage(image);
@@ -24,9 +24,9 @@ public class TravelService {
         }
 
         try {
-            Travel travel = new Travel(null, topic, content, null, image.getBytes(), null, userId);
-            travelMapper.insert(travel);
-            return new ResultVO<>().SUCCESS("创建成功", travel);
+            Food food = new Food(null, topic, content, null, image.getBytes(), null, userId);
+            foodMapper.insert(food);
+            return new ResultVO<>().SUCCESS("创建成功", food);
         } catch (Exception e) {
             return new ResultVO<>().FAIL("创建失败");
         }
@@ -34,7 +34,7 @@ public class TravelService {
 
     public ResultVO<Object> getArticle(long id) {
         try {
-            return new ResultVO<>().SUCCESS("查询成功", travelMapper.selectById(id));
+            return new ResultVO<>().SUCCESS("查询成功", foodMapper.selectById(id));
         } catch (Exception e) {
             return new ResultVO<>().FAIL("查询失败");
         }
@@ -44,7 +44,7 @@ public class TravelService {
         try {
             Map<String, Object> searchingMap = new HashMap<>();
             searchingMap.put("userId", id);
-            return new ResultVO<>().SUCCESS("查询成功", travelMapper.selectByMap(searchingMap));
+            return new ResultVO<>().SUCCESS("查询成功", foodMapper.selectByMap(searchingMap));
         } catch (Exception e) {
             return new ResultVO<>().FAIL("查询失败");
         }
@@ -52,7 +52,7 @@ public class TravelService {
 
     public ResultVO<Object> deleteArticle(long id) {
         try {
-            travelMapper.deleteById(id);
+            foodMapper.deleteById(id);
             return new ResultVO<>().SUCCESS("删除成功", null);
         } catch (Exception e) {
             return new ResultVO<>().FAIL("删除失败");
