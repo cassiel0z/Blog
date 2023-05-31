@@ -1,8 +1,8 @@
 package com.example.blog_springboot.controller;
 
-import com.example.blog_springboot.mapper.TravelMapper;
-import com.example.blog_springboot.pojo.Travel;
-import com.example.blog_springboot.service.TravelService;
+import com.example.blog_springboot.mapper.FoodMapper;
+import com.example.blog_springboot.pojo.Food;
+import com.example.blog_springboot.service.FoodService;
 import com.example.blog_springboot.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,39 +15,39 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 @RestController
-@RequestMapping("/api/travel")
-public class TravelController {
+@RequestMapping("/api/food")
+public class FoodController {
 
     @Autowired
-    private TravelService travelService;
+    private FoodService foodService;
 
     @Autowired
-    private TravelMapper travelMapper;
+    private FoodMapper foodMapper;
 
     @PostMapping("/add")
     public ResultVO<Object> addArticle(@RequestParam("topic") String topic, @RequestParam("content") String content, @RequestParam("image") MultipartFile image, @RequestParam("userId") long userId) {
-        return travelService.addArticle(topic, content, image, userId);
+        return foodService.addArticle(topic, content, image, userId);
     }
 
     @GetMapping("/get/{id}")
     public ResultVO<Object> getArticle(@PathVariable long id) {
-        return travelService.getArticle(id);
+        return foodService.getArticle(id);
     }
 
     @GetMapping("/get/user/{id}")
     public ResultVO<Object> getArticleByUser(@PathVariable long id) {
-        return travelService.getArticleByUser(id);
+        return foodService.getArticleByUser(id);
     }
 
     @GetMapping("/delete/{id}")
     public ResultVO<Object> deleteArticle(@PathVariable long id) {
-        return travelService.deleteArticle(id);
+        return foodService.deleteArticle(id);
     }
 
     @GetMapping("/photo/get/{id}")
     public void getUserPhoto(@PathVariable long id, HttpServletResponse response) {
         try {
-            Travel result = travelMapper.selectById(id);
+            Food result = foodMapper.selectById(id);
             InputStream inputStream = new ByteArrayInputStream(result.getImage());
 
             ServletOutputStream outputStream = response.getOutputStream();
@@ -68,7 +68,7 @@ public class TravelController {
                                           @RequestParam(value = "topic", required = false) String topic,
                                           @RequestParam(value = "content", required = false) String content,
                                           @RequestParam(value = "image", required = false) MultipartFile image) {
-        return travelService.updateArticle(id, topic, content, image);
+        return foodService.updateArticle(id, topic, content, image);
     }
 
 }
