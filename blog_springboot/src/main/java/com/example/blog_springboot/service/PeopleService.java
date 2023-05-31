@@ -59,4 +59,21 @@ public class PeopleService {
         }
     }
 
+    public ResultVO<Object> updateArticle(long id, String topic, String content, MultipartFile image) {
+        if (image != null) {
+            ResultVO<Object> check = ImageUtil.checkImage(image);
+            if (check != null) {
+                return check;
+            }
+        }
+
+        try {
+            People people = new People(id, topic, content, null, image == null ? null : image.getBytes(), null, null);
+            peopleMapper.updateById(people);
+            return new ResultVO<>().SUCCESS("修改成功", people);
+        } catch (Exception e) {
+            return new ResultVO<>().FAIL("修改失败");
+        }
+    }
+
 }

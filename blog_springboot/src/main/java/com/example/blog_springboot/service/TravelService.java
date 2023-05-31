@@ -59,4 +59,21 @@ public class TravelService {
         }
     }
 
+    public ResultVO<Object> updateArticle(long id, String topic, String content, MultipartFile image) {
+        if (image != null) {
+            ResultVO<Object> check = ImageUtil.checkImage(image);
+            if (check != null) {
+                return check;
+            }
+        }
+
+        try {
+            Travel travel = new Travel(id, topic, content, null, image == null ? null : image.getBytes(), null, null);
+            travelMapper.updateById(travel);
+            return new ResultVO<>().SUCCESS("修改成功", travel);
+        } catch (Exception e) {
+            return new ResultVO<>().FAIL("修改失败");
+        }
+    }
+
 }

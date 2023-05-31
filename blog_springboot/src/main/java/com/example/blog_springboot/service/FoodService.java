@@ -59,4 +59,21 @@ public class FoodService {
         }
     }
 
+    public ResultVO<Object> updateArticle(long id, String topic, String content, MultipartFile image) {
+        if (image != null) {
+            ResultVO<Object> check = ImageUtil.checkImage(image);
+            if (check != null) {
+                return check;
+            }
+        }
+
+        try {
+            Food food = new Food(id, topic, content, null, image == null ? null : image.getBytes(), null, null);
+            foodMapper.updateById(food);
+            return new ResultVO<>().SUCCESS("修改成功", food);
+        } catch (Exception e) {
+            return new ResultVO<>().FAIL("修改失败");
+        }
+    }
+
 }

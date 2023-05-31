@@ -63,4 +63,12 @@ public class FoodController {
         }
     }
 
+    @PostMapping("/update")
+    public ResultVO<Object> updateArticle(@RequestParam("id") Long id,
+                                          @RequestParam(value = "topic", required = false) String topic,
+                                          @RequestParam(value = "content", required = false) String content,
+                                          @RequestParam(value = "image", required = false) MultipartFile image) {
+        return foodService.updateArticle(id, topic, content, image);
+    }
+
 }
