@@ -4,29 +4,29 @@
       <v-row justify="center" class="ma-5">
 
         <v-col cols="12">
-          <v-text-field v-model="name" :counter="10" label="姓名" :rules="rules.nameRules" required outlined></v-text-field>
+          <v-text-field v-model="name" :counter="10" label="姓名" :rules="rules.nameRules" required variant="outlined"></v-text-field>
         </v-col>
 
         <v-col cols="8">
-          <v-text-field v-model="email" :rules="rules.emailRules" label="邮箱" required outlined></v-text-field>
+          <v-text-field v-model="email" :rules="rules.emailRules" label="邮箱" required variant="outlined"></v-text-field>
         </v-col>
 
         <v-col cols="4">
-          <v-btn color="purple" @click="getOTP()" class="mx-auto" block height="55" outlined :disabled="counter !== 0">{{
+          <v-btn color="purple" @click="getOTP()" class="mx-auto" block height="55" variant="outlined" :disabled="counter !== 0">{{
             counter === 0 ? '获取验证码' : `${counter}秒后重试` }}</v-btn>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="otp" label="验证码" required outlined></v-text-field>
+          <v-text-field v-model="otp" label="验证码" required variant="outlined"></v-text-field>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="password" label="密码" required outlined :rules="rules.pswRules"
+          <v-text-field v-model="password" label="密码" required variant="outlined" :rules="rules.pswRules"
             type="password"></v-text-field>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="repsw" label="重复密码" required outlined :rules="rules.repswRules"
+          <v-text-field v-model="repsw" label="重复密码" required variant="outlined" :rules="rules.repswRules"
             type="password"></v-text-field>
         </v-col>
 

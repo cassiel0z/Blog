@@ -20,7 +20,7 @@
           <!-- 邮箱登录 -->
           <template v-if="loginMethod === 1">
             <v-col cols="12" class="mt-4">
-              <v-text-field label="邮箱" outlined prepend-inner-icon="mdi-email" placeholder="hello@email.com"
+              <v-text-field label="邮箱" variant="outlined" prepend-inner-icon="mdi-email" placeholder="hello@email.com"
                 v-model="email" @keyup.enter="getCode()"></v-text-field>
 
               <v-btn color="purple" @click="getCode()" class="mx-auto mt-5" block height="55" :loading="loading">
@@ -33,17 +33,17 @@
           <!-- 密码登录 -->
           <template v-if="loginMethod === 2">
             <v-col cols="12">
-              <v-text-field label="邮箱" outlined prepend-inner-icon="mdi-email" placeholder="hello@email.com"
+              <v-text-field label="邮箱" variant="outlined" prepend-inner-icon="mdi-email" placeholder="hello@email.com"
                 v-model="email"></v-text-field>
             </v-col>
             <v-col cols="12">
               <v-text-field v-model="password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                prepend-inner-icon="mdi-key" outlined :type="show1 ? 'text' : 'password'" name="input-10-1" label="密码"
+                prepend-inner-icon="mdi-key" variant="outlined" :type="show1 ? 'text' : 'password'" name="input-10-1" label="密码"
                 @keyup.enter="submit()" @click:append="show1 = !show1">
               </v-text-field>
             </v-col>
             <v-col cols="4">
-              <v-btn color="purple" block height="55" outlined @click="show3 = true">
+              <v-btn color="purple" block height="55" variant="outlined" @click="show3 = true">
                 <span class="text-subtitle-1">忘记密码</span>
               </v-btn>
             </v-col>
@@ -72,25 +72,25 @@
       </v-row>
       <v-row justify="center">
         <v-col cols="8">
-          <v-text-field v-model="email" label="邮箱" required outlined :rules="rules.emailRules"></v-text-field>
+          <v-text-field v-model="email" label="邮箱" required variant="outlined" :rules="rules.emailRules"></v-text-field>
         </v-col>
 
         <v-col cols="4">
-          <v-btn color="purple" @click="getCode()" class="mx-auto" block height="55" outlined :disabled="counter !== 0">{{
+          <v-btn color="purple" @click="getCode()" class="mx-auto" block height="55" variant="outlined" :disabled="counter !== 0">{{
             counter === 0 ? '获取验证码' : `${counter}秒后重试` }}</v-btn>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="otp" label="验证码" required outlined></v-text-field>
+          <v-text-field v-model="otp" label="验证码" required variant="outlined"></v-text-field>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="resetPsw" label="密码" required outlined type="password"
+          <v-text-field v-model="resetPsw" label="密码" required variant="outlined" type="password"
             :rules="rules.pswRules"></v-text-field>
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="repsw" label="重复密码" required outlined type="password"
+          <v-text-field v-model="repsw" label="重复密码" required variant="outlined" type="password"
             :rules="rules.repswRules"></v-text-field>
         </v-col>
 

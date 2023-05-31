@@ -8,9 +8,37 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
-        meta:{
-          title:'首页'
+        component: () => import('@/views/Home.vue'),
+        meta: {
+          title: '首页'
+        }
+      },
+      {
+        path: 'food',
+        component: () => import('@/views/Food.vue'),
+        meta: {
+          title: '特色美食'
+        }
+      },
+      {
+        path: 'attractions',
+        component: () => import('@/views/Attractions.vue'),
+        meta: {
+          title: '特色景点'
+        }
+      },
+      {
+        path: 'celebrities',
+        component: () => import('@/views/Celebrities.vue'),
+        meta: {
+          title: '名人名事'
+        }
+      },
+      {
+        path: 'account',
+        component: () => import('@/views/AccountInfo.vue'),
+        meta: {
+          title: '账号信息'
         }
       },
     ],
@@ -18,8 +46,8 @@ const routes = [
   {
     path: '/404',
     component: () => import('@/views/404Page.vue'),
-    meta:{
-      title:'首页'
+    meta: {
+      title: '首页'
     }
   },
 ]

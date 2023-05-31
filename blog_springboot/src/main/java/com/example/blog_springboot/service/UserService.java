@@ -50,6 +50,7 @@ public class UserService {
             userMapper.insert(result);
             return loginByPassword(email, password);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResultVO<>().FAIL("用户注册失败");
         }
     }

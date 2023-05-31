@@ -1,11 +1,13 @@
 //导入request
 import request from './request'
 import {useAppStore} from '../store/app.ts'
+
+const store=useAppStore()
 //存放api
 
 //获取用户信息
 export const getUserInfo = (id) => {
-  let Id=id?id:useAppStore.state.userId
+  let Id=id?id:store.userId
   return request({
     method: 'get',
     url: `api/user/info/get/${Id}`,
@@ -13,10 +15,10 @@ export const getUserInfo = (id) => {
 }
 
 //获取用户头像
-export const getUserAvatar = userId => {
+export const getUserAvatar = () => {
   return request({
     method: 'get',
-    url: `/api/user/photo/get/${userId||useAppStore.state.userId}`,
+    url: `/api/user/photo/get/${store.userId}`,
     responseType: 'blob'
   })
 }
@@ -100,7 +102,7 @@ export const register = (email, password, username, verify) => {
 export const updateName = username => {
   return request({
     method: 'post',
-    url: `api/user/info/username/update/${useAppStore.state.userId}`,
+    url: `api/user/info/username/update/${store.userId}`,
     params: {
       username
     }
@@ -111,7 +113,7 @@ export const updateName = username => {
 export const updateAvatar = data => {
   return request({
     method: 'post',
-    url: `api/user/photo/upload/${useAppStore.state.userId}`,
+    url: `api/user/photo/upload/${store.userId}`,
     data
   })
 }
@@ -122,7 +124,7 @@ export const updateEmail = (email, verify) => {
     method: 'post',
     url: 'api/user/email/reset',
     params: {
-      id: useAppStore.state.userId,
+      id: store.userId,
       email,
       verify
     }
@@ -146,7 +148,7 @@ export const logout = () => {
     method: 'post',
     url: 'api/user/logout',
     params: {
-      id: useAppStore.state.userId
+      id: store.userId
     }
   })
 }

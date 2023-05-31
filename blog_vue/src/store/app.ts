@@ -8,8 +8,8 @@ interface storeState {
 
 export const useAppStore = defineStore('app', {
   state: (): storeState => ({
-    token: '',
-    userId: ''
+    token: localStorage.getItem('token')||'',
+    userId: localStorage.getItem('userId')||''
   }),
   actions: {
     setLoginInfo(token: string, userId: string): void {

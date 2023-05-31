@@ -1,0 +1,57 @@
+.container{
+margin: 20px auto;
+}
+a{
+    text-decoration: none;
+    color: rgb(65, 65, 65);
+}
+td {
+    width: 88%;
+    height: 40px;
+}
+
+.news{
+    padding: 15px;
+    width: 800px;
+    margin-top: 50px;
+    margin-left:40px;
+    background-color: rgb(235, 235, 235);
+}
+
+
+.news::before{
+    content: "计量要闻";
+    padding-left: 10px;
+    font-style:italic;
+    color: aliceblue;
+    font-size: 20px;
+    position: absolute;
+    width: 765px;
+    height: 30px;
+    margin-top: -30px;
+    background-color: rgb(64, 89, 89);
+}
+
+.medias {
+    padding: 15px;
+    width: 800px;
+    margin-top: -452px;
+    margin-left: 910px;
+    background-color: rgb(235, 235, 235);
+}
+
+
+
+.medias::before {
+    content: "媒体传真";
+    padding-left: 10px;
+    font-style: italic;
+    color: aliceblue;
+    font-size: 20px;
+    position: absolute;
+    width: 765px;
+    height: 30px;
+    margin-top: -30px;
+    background-color: rgb(64, 89, 89);
+}
+
