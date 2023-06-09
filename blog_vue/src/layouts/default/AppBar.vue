@@ -2,11 +2,6 @@
   <v-app-bar flat>
     <v-app-bar-title>
       JSP期末大作业
-      <v-btn> <v-icon icon="mdi-magnify"></v-icon> <span class="mb-1">搜索</span>
-        <div class="ml-1 text-disabled text-caption px-1"
-          style="border-style: solid;border-color: rgba(48, 48, 48, 0.204);border-width: thin;border-radius: 5px;">按 / 键
-        </div>
-      </v-btn>
     </v-app-bar-title>
 
     <v-tabs>
