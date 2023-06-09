@@ -80,9 +80,9 @@ function getMsg(value: any): void {
   text.value = value
 }
 onMounted(async () => {
-  let avatar = await getUserAvatar()
-  if (avatar.status === 200) {
-    avatar.value = URL.createObjectURL(avatar.data)
+  let a = await getUserAvatar()
+  if (a.status === 200) {
+    avatar.value = URL.createObjectURL(a.data)
   }
 })
 

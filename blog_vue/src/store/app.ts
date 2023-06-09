@@ -8,8 +8,9 @@ interface storeState {
 
 export const useAppStore = defineStore('app', {
   state: (): storeState => ({
-    token: localStorage.getItem('token')||'',
-    userId: localStorage.getItem('userId')||''
+    token: localStorage.getItem('token') || '',
+    userId: localStorage.getItem('userId') || '',
+    show:false
   }),
   actions: {
     setLoginInfo(token: string, userId: string): void {
@@ -21,6 +22,6 @@ export const useAppStore = defineStore('app', {
     logOut(): void {
       this.$reset()
       localStorage.clear();
-    }
+    },
   }
 })

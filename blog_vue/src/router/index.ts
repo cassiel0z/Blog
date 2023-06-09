@@ -17,21 +17,24 @@ const routes = [
         path: 'food',
         component: () => import('@/views/Food.vue'),
         meta: {
-          title: '特色美食'
+          title: '特色美食',
+          type: 'food'
         }
       },
       {
         path: 'attractions',
         component: () => import('@/views/Attractions.vue'),
         meta: {
-          title: '特色景点'
+          title: '特色景点',
+          type: 'travel'
         }
       },
       {
         path: 'celebrities',
         component: () => import('@/views/Celebrities.vue'),
         meta: {
-          title: '名人名事'
+          title: '名人名事',
+          type: 'people'
         }
       },
       {
@@ -62,7 +65,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title as string
   }
-  next()
+    next()
 })
 
 //全局后置路由守卫

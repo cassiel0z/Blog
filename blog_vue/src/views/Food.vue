@@ -1,17 +1,9 @@
 <template>
-
+    <contentView type="food"/>
+    <newArcticle type="food"/>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-let route=useRouter()
-
-onMounted(() => {
-    console.log(route.currentRoute.value.path)
-})
+import contentView from '@/components/contentView.vue';
+import newArcticle from '@/components/newArcticle.vue';
 </script>
-
-<style scoped>
-
-</style>

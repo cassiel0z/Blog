@@ -28,6 +28,7 @@ public class TravelService {
             travelMapper.insert(travel);
             return new ResultVO<>().SUCCESS("创建成功", travel);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResultVO<>().FAIL("创建失败");
         }
     }
