@@ -68,7 +68,7 @@ public class PeopleService {
         }
 
         try {
-            People people = new People(id, topic, content, null, image == null ? null : image.getBytes(), null, null);
+            People people = new People(id, topic, content, null, image == null || image.isEmpty() ? null : image.getBytes(), null, null);
             peopleMapper.updateById(people);
             return new ResultVO<>().SUCCESS("修改成功", people);
         } catch (Exception e) {

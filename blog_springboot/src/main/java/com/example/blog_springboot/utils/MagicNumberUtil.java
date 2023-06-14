@@ -1,7 +1,7 @@
 package com.example.blog_springboot.utils;
 
 public class MagicNumberUtil {
-    
+
     public static String getMagicNumber(byte[] bytes, int magicNumberLength) {
 
         StringBuilder magicNumber = new StringBuilder();

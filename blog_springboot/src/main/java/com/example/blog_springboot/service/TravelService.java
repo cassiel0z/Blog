@@ -69,7 +69,7 @@ public class TravelService {
         }
 
         try {
-            Travel travel = new Travel(id, topic, content, null, image == null ? null : image.getBytes(), null, null);
+            Travel travel = new Travel(id, topic, content, null, image == null || image.isEmpty() ? null : image.getBytes(), null, null);
             travelMapper.updateById(travel);
             return new ResultVO<>().SUCCESS("修改成功", travel);
         } catch (Exception e) {

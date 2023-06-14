@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class ImageUtil {
 
-    private static final long MAX_PHOTO_SIZE = 10 * 1024 * 1024;  // 大小限制 2MB
+    private static final long MAX_PHOTO_SIZE = 20 * 1024 * 1024;  // 大小限制 20MB
 
     private static final Map<String, String> ALLOWED_PHOTO_TYPES = new HashMap<>();
 
@@ -20,6 +20,10 @@ public class ImageUtil {
 
     public static ResultVO<Object> checkImage(MultipartFile image) {
         try {
+            if (image.isEmpty()) {
+                return null;
+            }
+
             if (image.getSize() > MAX_PHOTO_SIZE) {
                 return new ResultVO<>().FAIL("图片过大");
             }

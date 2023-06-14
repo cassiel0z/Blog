@@ -131,7 +131,7 @@ async function update(id: string) {
     formData.append('image', new Blob(post.pic))
     console.log(formData.get('image'))
     let response = await updateArticle(formData, props.type)
-    if (response.code === 0) {
+    if (response.data.code === 0) {
         route.go(0)
     }
 }
